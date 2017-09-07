@@ -337,6 +337,72 @@
           
             <p>最近有点沉迷这首歌</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2919622&auto=0&height=66"></iframe><br><br></p>
+<hr>
+<h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p><strong>http协议的主要特点：</strong></p>
+<ul>
+<li>简单快速</li>
+<li>灵活<br>请求头部分有个数据类型，完成不同数据类型之间的传输</li>
+<li>无连接<br>连接一次就会断开，不会保持</li>
+<li>无状态<br>客户端与服务端建立连接传输完数据后，会断开，下次客户端再请求连接的时候，服务端无法区分是不是通过一个身份</li>
+</ul>
+<p><strong>http报文的组成部分</strong></p>
+<ul>
+<li>请求报文<ul>
+<li>请求行：http方法、页面地址、http协议/版本。（GET / HTTP/1.1）</li>
+<li>请求头：key、value值</li>
+<li>空行：分隔请求头和请求体</li>
+<li>请求体</li>
+</ul>
+</li>
+<li>响应报文<ul>
+<li>状态行（HTTP/1.1 200 OK）</li>
+<li>响应头</li>
+<li>空行</li>
+<li>响应体</li>
+</ul>
+</li>
+</ul>
+<p><strong>http方法：GET-获取资源、POST-传输资源、PUT-更新资源、DELETE-删除资源、HEAD-获得报文首部</strong></p>
+<h4 id="DOM事件级别"><a href="#DOM事件级别" class="headerlink" title="DOM事件级别"></a>DOM事件级别</h4><p>准确的说就是DOM标准定义的级别<br>DOM1标准制定的时候没有设计跟事件相关的东西。可忽略。</p>
+<blockquote>
+<p>DOM0：element.onclick = funtion(){}<br>html里的写法是内联里写onclick=’function(){}’</p>
+<p>DOM2：element.addEventListener(‘click’, function(){}, false)<br>IE的规则是element.attachEvent(‘onclick’,function(){})</p>
+<p>DOM3：element.addEventListener(‘keyup’, function(){}, false)<br>增加了更多的事件而已</p>
+</blockquote>
+<p>Event对象常见应用:<br>event.preventDefault()   阻止事件的默认行为<br>event.stopPropagation()  阻止事件向上冒泡<br>event.target             返回当前是哪个DOM元素触发的事件<br>event.currentTarget      返回当前绑定事件的那个父级元素</p>
+<h4 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h4><ul>
+<li><p>new Event()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var dom = document.getElementById(&apos;btn&apos;);</div><div class="line">var eve = new Event(&apos;custome&apos;);  //可以把eve理解成平常说的click</div><div class="line">dom.addEventListener(&apos;custome&apos;,function()&#123;   //给dom元素绑定自定义事件名称</div><div class="line">    console.log(&apos;custome&apos;);</div><div class="line">&#125;);</div><div class="line">dom.onclick = function () &#123;</div><div class="line">    dom.dispatchEvent(eve);   </div><div class="line">    //用这个API来触发自定义事件。填的是eve这个事件对象，不是事件名custome</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>new CustomEvent()<br>用法和Event一样。唯一的缺点就是：指定了事件名后，可以带个obj参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var eve = new CustomEvent(&apos;custome&apos;,&#123;</div><div class="line">    bubbles: &apos;true&apos;,   //是否会冒泡</div><div class="line">    cancelable: &apos;true&apos;,  //是否可以被取消</div><div class="line">    detail: &apos;哈哈&apos;  //当事件初始化时传递的数据</div><div class="line">&#125;);</div><div class="line">dom.addEventListener(&apos;custome&apos;,function(haha)&#123;</div><div class="line">    console.log(haha.bubbles);</div><div class="line">    console.log(haha.cancelable);</div><div class="line">    console.log(haha.detail);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="BFC：块级格式化上下文"><a href="#BFC：块级格式化上下文" class="headerlink" title="BFC：块级格式化上下文"></a>BFC：块级格式化上下文</h5><p>原理(渲染规则)：</p>
+<ol>
+<li><del>在BFC这个元素的垂直方向的边距会发生重叠</del></li>
+<li>BFC的区域不会与外界浮动元素的区域重叠。</li>
+<li>BFC里的元素不受外界的影响。互不影响。</li>
+<li>计算BFC元素高度的时候，里面的浮动元素也会参与计算。一般用来清除浮动。</li>
+</ol>
+<p><strong>如何创建BFC：</strong></p>
+<ol>
+<li>overflow: hidden;</li>
+<li>浮动</li>
+<li>position不为static和relative</li>
+<li>display设table之类</li>
+</ol>
+<p>W3C盒模型：<code>box-sizing: content-box;</code><br>IE盒模型：<code>box-sizing: border-box;</code></p>
+<p><strong>JS获取盒模型的宽高：</strong><br>1.dom.style.width/height  //只能获取内联样式，带单位</p>
+<ol>
+<li>dom.currentStyle.width/height  //渲染完成后的真实宽高。只支持IE</li>
+<li>window.getComputedStyle(dom).width/height  //都支持</li>
+<li>dom.getBoundingClientRect().width/height  //获取相对于视窗的位置集合(上右下左)<br><img src="http://ww4.sinaimg.cn/large/0060lm7Tly1fjbgglyh87j306o06mq3n.jpg" alt="getBoundingClientRect()"></li>
+</ol>
+<p>网格布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">        display: grid;</div><div class="line">        width: 100%;</div><div class="line">        grid-template-rows: 100px;  //行高</div><div class="line">        grid-template-columns: 300px auto 300px;  //分成三列</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>浮动要注意先后顺序。<br>浮动的元素会占据文档流的位置。(文字环绕图片)</p>
+</blockquote>
 <p>查看全局安装的npm包：<code>npm list -g --depth 0</code></p>
 <h6 id="切图保存格式："><a href="#切图保存格式：" class="headerlink" title="切图保存格式："></a>切图保存格式：</h6><ol>
 <li>有动画,gif</li>
@@ -345,8 +411,8 @@
 <li>颜色比较多，不需要透明，jpeg</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- [if lte IE 8] &gt;</div><div class="line">IE8要用空格隔开</div><div class="line">&lt;![endif] --&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.notice &#123;</div><div class="line">    text-overflow: ellipsis; 用省略号代替超出的</div><div class="line">    overflow: hidden; 隐藏滚动条</div><div class="line">    white-space: nowrap; 强制不换行</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>width:  calc(33.33333333333333333% - 3rem);</p>
+<p>公告不换行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.notice &#123;</div><div class="line">    text-overflow: ellipsis; 用省略号代替超出的</div><div class="line">    overflow: hidden; 隐藏滚动条</div><div class="line">    white-space: nowrap; 强制不换行</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>width:  calc(33.3333333% - 3rem);</p>
 <p>8888888数字之间的空隙letter-spacing: 3px;</p>
 <p>css里的注释是/<em>…</em>/ 不能用//，less可以</p>
 <p>100%是16px，要让1rem = 10px 的话，就是（10/16）*100%= 62.5%</p>
@@ -362,7 +428,7 @@
 <p>左边的元素浮动后，右边的ul没必要浮动，就让它撑开父盒子。</p>
 </blockquote>
 <p><strong>谷歌中文版会有最小字体大小限制，为12px。 所以3rem应该要设置为36px。</strong></p>
-<h6 id="清除文本基线方法："><a href="#清除文本基线方法：" class="headerlink" title="清除文本基线方法："></a>清除文本基线方法：</h6><ol>
+<h5 id="清除文本基线方法："><a href="#清除文本基线方法：" class="headerlink" title="清除文本基线方法："></a>清除文本基线方法：</h5><ol>
 <li>设置为块级元素。</li>
 <li>将文本大小设置为0。</li>
 <li>vertical-aglin:bottom。</li>
@@ -370,15 +436,15 @@
 <blockquote>
 <p>百度地图秘钥ZuSbFihUuxRyEfO7ZqL8rGXKPRVuDmQ8</p>
 </blockquote>
-<h6 id="标签属性href，使其指向空或不返回任何内容。如："><a href="#标签属性href，使其指向空或不返回任何内容。如：" class="headerlink" title="标签属性href，使其指向空或不返回任何内容。如："></a>标签属性href，使其指向空或不返回任何内容。如：</h6><p><code>&lt;a href=&quot;javascript:void(0);&quot; &gt;点此无反应javascript:void(0)&lt;/a&gt;</code></p>
+<h5 id="标签属性href，使其指向空或不返回任何内容。如："><a href="#标签属性href，使其指向空或不返回任何内容。如：" class="headerlink" title="标签属性href，使其指向空或不返回任何内容。如："></a>标签属性href，使其指向空或不返回任何内容。如：</h5><p><code>&lt;a href=&quot;javascript:void(0);&quot; &gt;点此无反应javascript:void(0)&lt;/a&gt;</code></p>
 <p><code>&lt;a href=&quot;javascript:;&quot; &gt;点此无反应javascript:&lt;/a&gt;</code></p>
-<h6 id="标签事件onclick，阻止其默认行为。如："><a href="#标签事件onclick，阻止其默认行为。如：" class="headerlink" title="标签事件onclick，阻止其默认行为。如："></a>标签事件onclick，阻止其默认行为。如：</h6><p><code>&lt;a href=&quot;&quot; onclick=&quot;return false;&quot;&gt;return false;&lt;/a&gt;</code></p>
+<h5 id="标签事件onclick，阻止其默认行为。如："><a href="#标签事件onclick，阻止其默认行为。如：" class="headerlink" title="标签事件onclick，阻止其默认行为。如："></a>标签事件onclick，阻止其默认行为。如：</h5><p><code>&lt;a href=&quot;&quot; onclick=&quot;return false;&quot;&gt;return false;&lt;/a&gt;</code></p>
 <p><code>&lt;a href=&quot;#&quot; onclick=&quot;return false;&quot;&gt;return false;&lt;/a&gt;</code></p>
 <p>正则表达式： 小尖头在中括号里表示非，在斜杠里表示限制开头</p>
 <p><strong>一句话总结: 标准中规定的属性怎么用都行,但是自定义属性在标签中写,对象中拿不到,在对象中写,标签中也看不到,互不映射。</strong><br>getAttribute(); 获取标签上的属性<br>setAttribute(); 设置标签上的属性<br>removeAttribute(); 删除标签上的属性</p>
 <p>人和狗那里1是比较字符串的长度，2是比较字符。在js中不全等就是比较内容。</p>
 <p>switch穿透现象可以用在素质教育100分等级那里。</p>
-<h6 id="给对象追加的两种方式："><a href="#给对象追加的两种方式：" class="headerlink" title="给对象追加的两种方式："></a>给对象追加的两种方式：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">方便//    obj.age = 18;</div></pre></td></tr></table></figure>
+<h5 id="给对象追加的两种方式："><a href="#给对象追加的两种方式：" class="headerlink" title="给对象追加的两种方式："></a>给对象追加的两种方式：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">方便//    obj.age = 18;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">灵活//      obj[&quot;age&quot;] = 18;</div><div class="line">          obj[&quot;n&quot; + i] = i;</div></pre></td></tr></table></figure>
 <p>引入ICO图标代码：  <code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;  type=&quot;image/x-icon&quot;/&gt;</code></p>
 <blockquote>
@@ -413,7 +479,7 @@
 </blockquote>
 <p>标准流：就是浏览器默认摆放盒子的标准。</p>
 <p>浮动注意：在同一个结构中才会浮动找浮动（就是说要挨在一起）。</p>
-<h6 id="清除浮动方法："><a href="#清除浮动方法：" class="headerlink" title="清除浮动方法："></a>清除浮动方法：</h6><ol>
+<h4 id="清除浮动方法："><a href="#清除浮动方法：" class="headerlink" title="清除浮动方法："></a>清除浮动方法：</h4><ol>
 <li>额外标签法（不建议使用，因为会增加页面的标签数量）：又分为内部和外部。</li>
 <li>overflow方法：在浮动盒子的父元素中加个overflow:hidden。 （这个方法一般也不建议使用）</li>
 <li><p>使用伪元素。(给浮动元素的父盒子添加！)</p>
@@ -424,7 +490,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.clearfix::after,.clearfix::before&#123;</div><div class="line">    content:&quot;&quot;;</div><div class="line">    display:table;</div><div class="line">    clear:both;</div><div class="line">&#125;</div><div class="line"> .clearfix&#123;zoom:1;&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h5 id="定位："><a href="#定位：" class="headerlink" title="定位："></a>定位：</h5><p>分为静态定位（static,表现出来就是标准流），相对定位和绝对定位：</p>
+<h4 id="定位："><a href="#定位：" class="headerlink" title="定位："></a>定位：</h4><p>分为静态定位（static,表现出来就是标准流），相对定位和绝对定位：</p>
 <p>position:relative;相对定位：相对与盒子本来的位置进行移动。(不过在原来的位置依然占位，就是说没有脱离标准流)</p>
 <p>position:absolute;绝对定位：</p>
 <ol>
