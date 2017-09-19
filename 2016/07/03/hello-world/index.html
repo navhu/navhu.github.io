@@ -112,18 +112,18 @@
 
 
 
-<meta name="description" content="最近有点沉迷这首歌  需要设置固定宽度又需要自适应，可以设置max-width 重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。 如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置fo">
+<meta name="description" content="最近有点沉迷这首歌  屏幕宽度先除以320然后再乘以20?以320px的宽度为基准，html的font-size设为20px，不同尺寸的屏幕对应的font-size值等比设置，如480px的宽度html的字体大小即可计算出为30px ng-init=”name=’小明’” 给个初始值ng-clock需要配合CSS样式display:none解决闪烁问题ng-repeat=”item in haha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随笔杂谈（各种笔记）">
 <meta property="og:url" content="http://yoursite.com/2016/07/03/hello-world/index.html">
 <meta property="og:site_name" content="NavHu&#39;s BLOG">
-<meta property="og:description" content="最近有点沉迷这首歌  需要设置固定宽度又需要自适应，可以设置max-width 重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。 如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置fo">
+<meta property="og:description" content="最近有点沉迷这首歌  屏幕宽度先除以320然后再乘以20?以320px的宽度为基准，html的font-size设为20px，不同尺寸的屏幕对应的font-size值等比设置，如480px的宽度html的字体大小即可计算出为30px ng-init=”name=’小明’” 给个初始值ng-clock需要配合CSS样式display:none解决闪烁问题ng-repeat=”item in haha">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/0060lm7Tly1fjbgglyh87j306o06mq3n.jpg">
 <meta property="og:updated_time" content="2017-09-10T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随笔杂谈（各种笔记）">
-<meta name="twitter:description" content="最近有点沉迷这首歌  需要设置固定宽度又需要自适应，可以设置max-width 重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。 如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置fo">
+<meta name="twitter:description" content="最近有点沉迷这首歌  屏幕宽度先除以320然后再乘以20?以320px的宽度为基准，html的font-size设为20px，不同尺寸的屏幕对应的font-size值等比设置，如480px的宽度html的字体大小即可计算出为30px ng-init=”name=’小明’” 给个初始值ng-clock需要配合CSS样式display:none解决闪烁问题ng-repeat=”item in haha">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/0060lm7Tly1fjbgglyh87j306o06mq3n.jpg">
 
 
@@ -349,13 +349,15 @@
       
         <p>最近有点沉迷这首歌</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2919622&auto=0&height=66"></iframe><br><br></p>
+<p>屏幕宽度先除以320然后再乘以20?<br>以320px的宽度为基准，html的font-size设为20px，不同尺寸的屏幕对应的font-size值等比设置，如480px的宽度html的字体大小即可计算出为30px</p>
+<p>ng-init=”name=’小明’” 给个初始值<br>ng-clock需要配合CSS样式display:none解决闪烁问题<br>ng-repeat=”item in haha” 如果遍历的数据中有重复值加上track by $index<br>ng-show、ng-hide只是设置display:none来隐藏元素<br>ng-if=”true/false” 则是直接移除dom元素。true显示、false隐藏。<br>ng-switch-when 对应的值等于ng-switch对应值时，当前dom元素就显示<br>html5中要是怕兼容的话可言在指令前加上data-前缀。如data-ng-app,data-ng-click<br>angular自定义指令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[]).directive(<span class="string">'myBtn'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$log</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span>&#123;</div><div class="line">    template: <span class="string">'&lt;div&gt;&lt;button&gt;我是按钮&lt;/button&gt;&lt;/div&gt;'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>需要设置固定宽度又需要自适应，可以设置max-width</p>
 <p>重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。</p>
 <p>如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置font-size为零试试。</p>
 <p>Navigator platform 返回运行浏览器的硬件平台</p>
 <a id="more"></a>
 <p>webpack的配置项中，<strong>css-loader和style-loader顺序千万千万别写反了</strong>，必须style-loader在前！！！如下：<br>css-loader 是处理css文件中的<code>@import</code> 和 <code>url(...)</code>等<br>style-loader 将css插入到页面的style标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    test: /\.css$/,</div><div class="line">    use: [</div><div class="line">        &#123;loader: &apos;style-loader&apos;&#125;,</div><div class="line">        &#123;loader: &apos;css-loader&apos;&#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h5 id="封装一个将伪数组转换成数组的方法："><a href="#封装一个将伪数组转换成数组的方法：" class="headerlink" title="封装一个将伪数组转换成数组的方法："></a>封装一个将伪数组转换成数组的方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var toArray = function(s)&#123;</div><div class="line">  try&#123;</div><div class="line">    return Array.prototype.slice.call(s);</div><div class="line">  &#125; catch(err)&#123;</div><div class="line">      var arr = [];</div><div class="line">      for(var i = 0,len = s.length; i &lt; len; i++)&#123;</div><div class="line">        //arr.push(s[i]);</div><div class="line">        arr[i] = s[i]; //据说这样比push快</div><div class="line">      &#125;</div><div class="line">       return arr;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="封装一个将伪数组转换成数组的方法："><a href="#封装一个将伪数组转换成数组的方法：" class="headerlink" title="封装一个将伪数组转换成数组的方法："></a>封装一个将伪数组转换成数组的方法：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> toArray = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>)</span>&#123;</div><div class="line">  <span class="keyword">try</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(s);</div><div class="line">  &#125; <span class="keyword">catch</span>(err)&#123;</div><div class="line">      <span class="keyword">var</span> arr = [];</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,len = s.length; i &lt; len; i++)&#123;</div><div class="line">        <span class="comment">//arr.push(s[i]);</span></div><div class="line">        arr[i] = s[i]; <span class="comment">//据说这样比push快</span></div><div class="line">      &#125;</div><div class="line">       <span class="keyword">return</span> arr;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p><strong>http协议的主要特点：</strong></p>
 <ul>
 <li>简单快速</li>
@@ -421,6 +423,7 @@
 <blockquote>
 <p>浮动要注意先后顺序。<br>浮动的元素会占据文档流的位置。(文字环绕图片)</p>
 </blockquote>
+<p>webstorm破解地址<a href="http://idea.iteblog.com/key.php" target="_blank" rel="external">http://idea.iteblog.com/key.php</a></p>
 <p>查看全局安装的npm包：<code>npm list -g --depth 0</code></p>
 <h6 id="切图保存格式："><a href="#切图保存格式：" class="headerlink" title="切图保存格式："></a>切图保存格式：</h6><ol>
 <li>有动画,gif</li>

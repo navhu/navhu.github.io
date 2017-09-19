@@ -349,7 +349,51 @@
       
 
       
-        
+        <p>HTML CSS<br>node.requestFullScreen()开启全屏</p>
+<p>var reader = new FileReader 文件读取</p>
+<p>draggable = “true” 文件拖拽<br>先dom.ondragover = function(ele){ele.preventDefault()}<br>才能触发ondrop事件<br>拖元素的时候会触发ondragstart事件</p>
+<p>cookie 4K 、sessionStorage约5M、 localStorage约20M<br>setItem(key, value) 存<br>getItem(key) 读<br>removeItem(key) 删<br>clear() 清空</p>
+<p>JSON.stringify()对象转字符串</p>
+<p>JSON.parse() 字符串转对象</p>
+<p>&lt;!DOCTYPE&gt; 没有会开启怪异模式。<br>DTD指的是Strict、Transitional、Frameset三种模式</p>
+<p>src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。</p>
+<p>电商网站优化：<br>图片懒加载:<br>1.定时器延迟加载<br>2.符合某些条件加载<br>3.可视区加载</p>
+<p>预加载：<br>CSS<br>JavaScript<br>AJAX</p>
+<p>雪碧图、Base64图片</p>
+<p>Sass/Scss与Less区别：<br>1.编译环境<br>2.变量符<br>3.输出设置<br>4.Sass支持条件语句<br>5.scss引用的外部文件命名必须以_开头</p>
+<p>在页面加载的时候，link会同时被加载，而@import引用的CSS会在页面加载完成后才会加载引用的CSS</p>
+<p>IE的双边距BUG：块级元素float后设置横向margin，ie6显示的margin比设置的较大。<br>解决：加入_display：inline</p>
+<p>常见兼容性问题：<br>1.双边距BUG float引起的  使用display<br>2.float 3像素问题 使用float引起的 使用1.dislpay:inline -3px  2.对另一个元素同时使用float； 3.为已经浮动的div添加一条语句：margin-right:-3px; </p>
+<ol>
+<li>img标签3像素问题：1.img标签增加vertical-align:top  2.img标签的父标签增加font-size:0; 3.img标签增加display:block;</li>
+</ol>
+<p>3.超链接hover 点击后失效  使用正确的书写顺序 link visited hover active<br>4.Ie z-index问题 给父级添加position:relative<br>5.Png 透明 使用js代码 改<br>6.Min-height 最小高度 ！Important 解决’<br>7.select 在ie6下遮盖 使用iframe嵌套<br>8.为什么没有办法定义1px左右的宽度容器（IE6默认的行高造成的，使用over:hidden,zoom:0.08 line-height:1px）<br>9.IE5-8不支持opacity，解决办法：<br>.opacity {<br>    opacity: 0.4<br>    filter: alpha(opacity=60); /<em> for IE5-7 </em>/<br>    -ms-filter: “progid:DXImageTransform.Microsoft.Alpha(Opacity=60)”; /<em> for IE 8</em>/<br>}</p>
+<ol>
+<li>IE6不支持PNG透明背景，解决办法: IE6下使用gif图片</li>
+</ol>
+<p>png24为的图片在iE6浏览器上出现背景，解决方案是做成PNG8.</p>
+<p>使用“\9”这一标记，将IE游览器从所有情况中分离出来。接着，再次使用“+”将IE8和IE7、IE6分离开来</p>
+<p>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决.</p>
+<p>为什么不能定义1px左右的div容器？<br>IE6下这个问题是因为默认的行高造成的，解决的方法也有很多，例如：overflow:hidden | zoom:0.08 | line-height:1px</p>
+<p>等高布局有几种不同的方法，但目前为止我认为浏览器兼容最好最简便的应该是padding补偿法。首先把列的padding-bottom设为一个足够大的值，再把列的margin-bottom设一个与前面的</p>
+<p>padding-bottom的正值相抵消的负值，父容器设置超出隐藏，这样子父容器的高度就还是它里面的列没有设定padding-bottom时的高度，当它里面的任一列高度增加了，则父容器的高度被撑</p>
+<p>到它里面最高那列的高度，其他比这列矮的列则会用它们的padding-bottom来补偿这部分高度差。因为背景是可以用在padding占用的空间里的，而且边框也是跟随padding变化的，所以就成</p>
+<p>功的完成了一个障眼法。</p>
+<p>readyonly与disabled的区别<br>ReadOnly和Disabled的作用是使用户不能够更改表单域中的内容.<br>但是二者还是有着一些区别的：<br>1、Readonly只针对input(text/password)和textarea有效，而disabled对于所有的表单元素有效，包括select,radio,checkbox,button等。<br>2、在表单元素使用了disabled后，我们将表单以POST或者GET的方式提交的话，这个元素的值不会被传递出去，而readonly会将该值传递出去</p>
+<p>JS<br>typeof 返回值有六种： number，string，boolean，object，function，undefined。</p>
+<p>split()是字符串的方法，用于把一个字符串分割成字符串数组<br>slice() 选取数组的的一部分，并返回一个新数组。<br>splice()从数组中添加或删除元素。</p>
+<p>join()是将数组转换成字符串<br>Push()尾部添加<br>pop()尾部删除<br>Unshift()头部添加<br>shift()头部删除</p>
+<p>普通添加事件的方法不支持添加多个事件，最下面的事件会覆盖上面的，普通事件无法取消。事件绑定（addEventListener）方式添加事件可以添加多个。</p>
+<p>添加 删除 替换 插入<br>obj.appendChid()<br>obj.insertBefore()<br>obj.replaceChild()<br>obj.removeChild()</p>
+<p>window.onload 和document ready的区别<br>window.onload 是在dom文档树加载完和所有文件加载完之后执行一个函数<br>Document.ready原生中没有这个方法，jquery中有 $().ready(function),在dom文档树加载完之后执行一个函数（注意，这里面的文档树加载完不代表全部文件加载完）。<br>$(document).ready要比window.onload先执行<br>window.onload只能出来一次，$(document).ready可以出现多次</p>
+<p>”==”和“===”的不同：<br>前者会自动转换类型，后者不会</p>
+<p>caller是返回一个对函数的引用，该函数调用了当前函数；<br>callee是返回正在被执行的function函数，也就是所指定的function对象的正文。</p>
+<p>请尽可能详尽的解释ajax的工作原理<br>Ajax的工作原理相当于在用户和服务器之间加了—个中间层，使用户操作与服务器响应异步化。这样把以前的一些服务器负担的工作转嫁到客户端，利于客户端闲置的处理能力来处理，减轻</p>
+<p>服务器和带宽的负担，从而达到节约ISP的空间及带宽租用成本的目的。<br>简单来说通过XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用javascript来操作DOM而更新页面。这其中最关键的一步就是从服务器获得请求数据。要清楚这个过程和</p>
+<p>原理，我们必须对 XMLHttpRequest有所了解。</p>
+<p>在Javascript中什么是伪数组？如何将伪数组转化为标准数组？<br>伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用</p>
+<p>getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。</p>
+
       
     </div>
     

@@ -636,6 +636,8 @@ document.getElementById('btn').onclick = function() {
         
           <p>最近有点沉迷这首歌</p>
 <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2919622&auto=0&height=66"></iframe><br><br></p>
+<p>屏幕宽度先除以320然后再乘以20?<br>以320px的宽度为基准，html的font-size设为20px，不同尺寸的屏幕对应的font-size值等比设置，如480px的宽度html的字体大小即可计算出为30px</p>
+<p>ng-init=”name=’小明’” 给个初始值<br>ng-clock需要配合CSS样式display:none解决闪烁问题<br>ng-repeat=”item in haha” 如果遍历的数据中有重复值加上track by $index<br>ng-show、ng-hide只是设置display:none来隐藏元素<br>ng-if=”true/false” 则是直接移除dom元素。true显示、false隐藏。<br>ng-switch-when 对应的值等于ng-switch对应值时，当前dom元素就显示<br>html5中要是怕兼容的话可言在指令前加上data-前缀。如data-ng-app,data-ng-click<br>angular自定义指令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[]).directive(<span class="string">'myBtn'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$log</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span>&#123;</div><div class="line">    template: <span class="string">'&lt;div&gt;&lt;button&gt;我是按钮&lt;/button&gt;&lt;/div&gt;'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>需要设置固定宽度又需要自适应，可以设置max-width</p>
 <p>重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。</p>
 <p>如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置font-size为零试试。</p>
