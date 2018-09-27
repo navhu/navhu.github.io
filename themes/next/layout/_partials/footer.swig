@@ -34,16 +34,15 @@
     #}NexT.{{ theme.scheme }}{#
   #}</a>{#
 #}
-<span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-<span id="showDays"></span>
+
+  <span class="post-meta-divider">|</span>
+  <span id="showDays"></span>
 </div>
 {% endif %}
 
-
 <script>
   var birthDay = new Date('2/7/2016');
-  var now = new Date();
-  var duration = now.getTime() - birthDay.getTime();
+  var duration = new Date().getTime() - birthDay.getTime();
   var total= Math.floor(duration / (1000 * 60 * 60 * 24));
   document.getElementById('showDays').innerHTML='本站已运行' + total + '天';
 </script>
