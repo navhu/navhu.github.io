@@ -23,4 +23,4 @@ date: 2016-02-11 18:09:06
 > “你先照顾好你自己吧，傻瓜！”
 > ...
 
-![图片](http://ww1.sinaimg.cn/large/0060lm7Tly1fjadh5mvecj30dc0ea0tg.jpg)
+![图片](https://ww1.sinaimg.cn/large/0060lm7Tly1fjadh5mvecj30dc0ea0tg.jpg)

@@ -31,7 +31,7 @@ git工具我用的是 GitHub Desktop。电脑已设置好 *显示隐藏的文件
 ![pic-07](https://wx3.sinaimg.cn/mw690/0060lm7Tly1fvne26xulhj306f09e3yp.jpg)
 
 4. 再将原先博客环境（`D:\navhu\navhu.github.io`文件夹里的全部文件，除了`.git`，`.deploy_git`，`node_modules`，`public`，`db.json`，`debug.log`）全部复制到`D:\navhu.github.io`文件夹里。
-![pic-08](http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvnegiv54aj307j0bst90.jpg)
+![pic-08](https://wx4.sinaimg.cn/mw690/0060lm7Tly1fvnegiv54aj307j0bst90.jpg)
 ```
 `.git`: 不需要。
 `.deploy_git`: hexo-deployer-git 这个插件生成的。不需要。
