@@ -6,7 +6,11 @@ updated: 2017-09-11
 
 最近有点沉迷这首歌
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2919622&auto=0&height=66"></iframe>
+
+<!-- more -->
+
 <br>
+
 
 需要设置固定宽度又需要自适应，可以设置max-width
 
@@ -15,8 +19,6 @@ updated: 2017-09-11
 如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置font-size为零试试。
 
 Navigator platform 返回运行浏览器的硬件平台
-
-<!-- more -->
 
 
 
@@ -75,7 +77,7 @@ var toArray = function(s){
   连接一次就会断开，不会保持
 * 无状态
   客户端与服务端建立连接传输完数据后，会断开，下次客户端再请求连接的时候，服务端无法区分是不是通过一个身份
-  
+
 **http报文的组成部分**
 
 + 请求报文
@@ -127,7 +129,7 @@ dom.addEventListener('custome',function(){   //给dom元素绑定自定义事件
     console.log('custome');
 });
 dom.onclick = function () {
-    dom.dispatchEvent(eve);   
+    dom.dispatchEvent(eve);
     //用这个API来触发自定义事件。填的是eve这个事件对象，不是事件名custome
 };
 ```
@@ -232,7 +234,7 @@ css里的注释是/*...*/ 不能用//，less可以
 **选择器用 li + li 的小技巧加竖线分隔边框**
 
 ###### li标签inline-block之后会有点间隙，是因为li标签换行导致的。解决：
-1. 加上margin-left: -3px(有副作用，并不是每个浏览器都3px); 
+1. 加上margin-left: -3px(有副作用，并不是每个浏览器都3px);
 2. 改变一下书写样式，把末尾的`</li>`放到下一行的开头。`</li><li>哈哈哈</li>`
 3. 不写li的闭合标签，html会自动帮我们加上.
 4. 给li的父元素ul设置`font-size: 0;`然后单独给li设置font-size；（空白字符其实受font-size的影响，设置成0就OK了）
@@ -281,7 +283,7 @@ switch穿透现象可以用在素质教育100分等级那里。
 
 ```
 灵活//      obj["age"] = 18;
-          obj["n" + i] = i; 
+          obj["n" + i] = i;
 ```
 
 
@@ -326,7 +328,7 @@ color:rgba(0,0,0,1)"1代表透明度，0到1取值"
 > background-image:url(路径)
 > background-repeat
 > background-position
-> 
+>
 > 连写形式：  background：颜色 图片 平铺 位置；background: red url(1.gif) no-repeat center top;
 
 **border连写：  粗细 虚实 颜色；**
@@ -341,7 +343,7 @@ table中清除单元格之间的间隙 `border-collapse:collapse；`
 > **margin的合并现象**:如果两个div上下排序，给上面的div设置margin-bottom，给下面的div设置margin-top，那么两个margin会发生合并现象，合并以后的值取较大的那个。
 
 > **塌陷现象**：如果一个大盒子中包含一个小盒子，给小盒子设置margin-top，大盒子会一起向下平移。
-> 
+>
 > 解决1：给大盒子设置边框。2：给大盒子设置overflow：hidden；
 
 标准流：就是浏览器默认摆放盒子的标准。
@@ -400,7 +402,7 @@ overflow:溢出。
 取值：hidden； scroll:给容器加上滚动条；auto：视情况自动判断要不要加滚动条。
 
 > 元素的隐藏：
-> overflow: hidden；（超出的剪掉）  visibility:hidden;（占位）display:none；（在页面上不占位） 
+> overflow: hidden；（超出的剪掉）  visibility:hidden;（占位）display:none；（在页面上不占位）
 > display:none 和display:block是一对反义词。
 
 透明度设置：`opacity:0.5;`（取值是0-1的小数，包含0和1,0为全透明，1为完全不透明）
@@ -439,7 +441,7 @@ div.style.setProperty('height','250px');
 div.style.setProperty('border','1px red solid');
 #####  第三种：使用css属性对应的style属性
 div.style.width = "250px";
-div.style.height = "250px";          
+div.style.height = "250px";
 div.style.border = "1px solid red";
 
 

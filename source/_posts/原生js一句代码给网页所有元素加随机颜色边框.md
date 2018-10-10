@@ -5,7 +5,10 @@ updated: 2017-05-13
 tags:
 ---
 
->5.13更新
+
+> 5.13更新
+
+<!-- more -->
 
 代码如下：
 ```
@@ -23,7 +26,7 @@ document.getElementById('btn').onclick = function() {
 }
 </script>
 其它效果：
-<!-- more -->
+
 ```
 [].slice.call(document.getElementsByTagName('*')).forEach((ele) => {ele.style.setProperty('animation', 'interesting 2s infinite')});
 document.body.innerHTML += "<style>@keyframes interesting{from{transform:rotate(-2deg)}to{transform: rotate(2deg);}}</style>";
