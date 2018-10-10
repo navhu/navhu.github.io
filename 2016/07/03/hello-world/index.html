@@ -112,18 +112,18 @@
 
 
 
-<meta name="description" content="最近有点沉迷这首歌  需要设置固定宽度又需要自适应，可以设置max-width 重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。 如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置fo">
+<meta name="description" content="最近有点沉迷这首歌">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随笔杂谈（各种笔记）">
 <meta property="og:url" content="http://yoursite.com/2016/07/03/hello-world/index.html">
 <meta property="og:site_name" content="NavHu&#39;s BLOG">
-<meta property="og:description" content="最近有点沉迷这首歌  需要设置固定宽度又需要自适应，可以设置max-width 重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。 如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置fo">
+<meta property="og:description" content="最近有点沉迷这首歌">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/0060lm7Tly1fjbgglyh87j306o06mq3n.jpg">
 <meta property="og:updated_time" content="2017-09-10T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随笔杂谈（各种笔记）">
-<meta name="twitter:description" content="最近有点沉迷这首歌  需要设置固定宽度又需要自适应，可以设置max-width 重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。 如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置fo">
+<meta name="twitter:description" content="最近有点沉迷这首歌">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/0060lm7Tly1fjbgglyh87j306o06mq3n.jpg">
 
 
@@ -348,12 +348,14 @@
 
       
         <p>最近有点沉迷这首歌</p>
-<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2919622&auto=0&height=66"></iframe><br><br></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2919622&auto=0&height=66"></iframe>
+
+<a id="more"></a>
+<p><br></p>
 <p>需要设置固定宽度又需要自适应，可以设置max-width</p>
 <p>重置样式，可以使用reset.css或者normalize.css。reset.css重置所有样式，normalize.css重置部分样式。如，reset.css吧h1重置成和p一样的大小了。</p>
 <p>如果调整margin和padding都处理不掉边框，可能是font-size的问题（div的font-size），可以设置font-size为零试试。</p>
 <p>Navigator platform 返回运行浏览器的硬件平台</p>
-<a id="more"></a>
 <p>webpack的配置项中，<strong>css-loader和style-loader顺序千万千万别写反了</strong>，必须style-loader在前！！！如下：<br>css-loader 是处理css文件中的<code>@import</code> 和 <code>url(...)</code>等<br>style-loader 将css插入到页面的style标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.css$/,</span><br><span class="line">    use: [</span><br><span class="line">        &#123;loader: &apos;style-loader&apos;&#125;,</span><br><span class="line">        &#123;loader: &apos;css-loader&apos;&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h5 id="封装一个将伪数组转换成数组的方法："><a href="#封装一个将伪数组转换成数组的方法：" class="headerlink" title="封装一个将伪数组转换成数组的方法："></a>封装一个将伪数组转换成数组的方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var toArray = function(s)&#123;</span><br><span class="line">  try&#123;</span><br><span class="line">    return Array.prototype.slice.call(s);</span><br><span class="line">  &#125; catch(err)&#123;</span><br><span class="line">      var arr = [];</span><br><span class="line">      for(var i = 0,len = s.length; i &lt; len; i++)&#123;</span><br><span class="line">        //arr.push(s[i]);</span><br><span class="line">        arr[i] = s[i]; //据说这样比push快</span><br><span class="line">      &#125;</span><br><span class="line">       return arr;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p><strong>http协议的主要特点：</strong></p>
@@ -394,7 +396,7 @@
 <p>Event对象常见应用:<br>event.preventDefault()   阻止事件的默认行为<br>event.stopPropagation()  阻止事件向上冒泡<br>event.target             返回当前是哪个DOM元素触发的事件<br>event.currentTarget      返回当前绑定事件的那个父级元素</p>
 <h4 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h4><ul>
 <li><p>new Event()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var dom = document.getElementById(&apos;btn&apos;);</span><br><span class="line">var eve = new Event(&apos;custome&apos;);  //可以把eve理解成平常说的click</span><br><span class="line">dom.addEventListener(&apos;custome&apos;,function()&#123;   //给dom元素绑定自定义事件名称</span><br><span class="line">    console.log(&apos;custome&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">dom.onclick = function () &#123;</span><br><span class="line">    dom.dispatchEvent(eve);   </span><br><span class="line">    //用这个API来触发自定义事件。填的是eve这个事件对象，不是事件名custome</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var dom = document.getElementById(&apos;btn&apos;);</span><br><span class="line">var eve = new Event(&apos;custome&apos;);  //可以把eve理解成平常说的click</span><br><span class="line">dom.addEventListener(&apos;custome&apos;,function()&#123;   //给dom元素绑定自定义事件名称</span><br><span class="line">    console.log(&apos;custome&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">dom.onclick = function () &#123;</span><br><span class="line">    dom.dispatchEvent(eve);</span><br><span class="line">    //用这个API来触发自定义事件。填的是eve这个事件对象，不是事件名custome</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>new CustomEvent()<br>用法和Event一样。唯一的缺点就是：指定了事件名后，可以带个obj参数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var eve = new CustomEvent(&apos;custome&apos;,&#123;</span><br><span class="line">    bubbles: &apos;true&apos;,   //是否会冒泡</span><br><span class="line">    cancelable: &apos;true&apos;,  //是否可以被取消</span><br><span class="line">    detail: &apos;哈哈&apos;  //当事件初始化时传递的数据</span><br><span class="line">&#125;);</span><br><span class="line">dom.addEventListener(&apos;custome&apos;,function(haha)&#123;</span><br><span class="line">    console.log(haha.bubbles);</span><br><span class="line">    console.log(haha.cancelable);</span><br><span class="line">    console.log(haha.detail);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -442,7 +444,7 @@
 <p><code>::selection</code> 设置鼠标选中复制的文本:颜色之类的样式</p>
 <p><strong>选择器用 li + li 的小技巧加竖线分隔边框</strong></p>
 <h6 id="li标签inline-block之后会有点间隙，是因为li标签换行导致的。解决："><a href="#li标签inline-block之后会有点间隙，是因为li标签换行导致的。解决：" class="headerlink" title="li标签inline-block之后会有点间隙，是因为li标签换行导致的。解决："></a>li标签inline-block之后会有点间隙，是因为li标签换行导致的。解决：</h6><ol>
-<li>加上margin-left: -3px(有副作用，并不是每个浏览器都3px); </li>
+<li>加上margin-left: -3px(有副作用，并不是每个浏览器都3px);</li>
 <li>改变一下书写样式，把末尾的<code>&lt;/li&gt;</code>放到下一行的开头。<code>&lt;/li&gt;&lt;li&gt;哈哈哈&lt;/li&gt;</code></li>
 <li>不写li的闭合标签，html会自动帮我们加上.</li>
 <li>给li的父元素ul设置<code>font-size: 0;</code>然后单独给li设置font-size；（空白字符其实受font-size的影响，设置成0就OK了）</li>

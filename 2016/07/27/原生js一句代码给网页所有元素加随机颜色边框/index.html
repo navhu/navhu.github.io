@@ -112,17 +112,17 @@
 
 
 
-<meta name="description" content="5.13更新  代码如下：12[].slice.call(document.getElementsByTagName(&amp;apos;*&amp;apos;)).forEach((ele) =&amp;gt; &amp;#123;ele.style.setProperty(&amp;apos;border&amp;apos;, &amp;apos;1px solid #&amp;apos; + Math.random().toString(16).sli">
+<meta name="description" content="5.13更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原生js一句代码给网页所有元素加随机颜色边框">
 <meta property="og:url" content="http://yoursite.com/2016/07/27/原生js一句代码给网页所有元素加随机颜色边框/index.html">
 <meta property="og:site_name" content="NavHu&#39;s BLOG">
-<meta property="og:description" content="5.13更新  代码如下：12[].slice.call(document.getElementsByTagName(&amp;apos;*&amp;apos;)).forEach((ele) =&amp;gt; &amp;#123;ele.style.setProperty(&amp;apos;border&amp;apos;, &amp;apos;1px solid #&amp;apos; + Math.random().toString(16).sli">
+<meta property="og:description" content="5.13更新">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-12T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生js一句代码给网页所有元素加随机颜色边框">
-<meta name="twitter:description" content="5.13更新  代码如下：12[].slice.call(document.getElementsByTagName(&amp;apos;*&amp;apos;)).forEach((ele) =&amp;gt; &amp;#123;ele.style.setProperty(&amp;apos;border&amp;apos;, &amp;apos;1px solid #&amp;apos; + Math.random().toString(16).sli">
+<meta name="twitter:description" content="5.13更新">
 
 
 
@@ -348,6 +348,7 @@
         <blockquote>
 <p>5.13更新</p>
 </blockquote>
+<a id="more"></a>
 <p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[].slice.call(document.getElementsByTagName(&apos;*&apos;)).forEach</span><br><span class="line">((ele) =&gt; &#123;ele.style.setProperty(&apos;border&apos;, &apos;1px solid #&apos; + Math.random().toString(16).slice(2, 8));&#125;)</span><br></pre></td></tr></table></figure></p>
 <p><button id="btn">点击预览效果</button><br></p>
 <script>
@@ -358,7 +359,7 @@ document.getElementById('btn').onclick = function() {
 }
 </script>
 其它效果：
-<a id="more"></a>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[].slice.call(document.getElementsByTagName(&apos;*&apos;)).forEach((ele) =&gt; &#123;ele.style.setProperty(&apos;animation&apos;, &apos;interesting 2s infinite&apos;)&#125;);</span><br><span class="line">document.body.innerHTML += &quot;&lt;style&gt;@keyframes interesting&#123;from&#123;transform:rotate(-2deg)&#125;to&#123;transform: rotate(2deg);&#125;&#125;&lt;/style&gt;&quot;;</span><br></pre></td></tr></table></figure>
 
 <button id="btn2">走你!</button>
