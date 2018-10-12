@@ -563,3 +563,338 @@ Bar - lastName - 1
 **在组件中使用 v-for 的话 key 是必须的！**
 
 **数组和对象的更新检测**（[去官网阅读吧](https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B)）
+
+
+
+
+## 事件处理
+
+> **v-on**
+
+```html
+<p>the button has been clicked {{ count }} times.</p>
+
+<button v-on:click="add">Add 1</button>
+
+<button v-on:click="warn('使用$event变量访问原生事件对象', $event)"> $event变量 </button>
+```
+
+```javascript
+var app = new Vue({
+    el: '#app',
+    data: {
+        count: 0
+    },
+    methods: {
+        add: function(){
+            this.count += 1;
+        },
+        warn: function(msg, event){
+            if (event) {
+                event.preventDefault();
+            }
+            alert(msg);
+            alert(event.target.tagName);
+        }
+    }
+})
+```
+
+#### 事件修饰符
+
+`.stop`、`.prevent`、`.capture`、`.self`、`.once`、`.passive`
+
+**使用时一定要注意顺序！** ，比如：
+
+`v-on:click.prevent.self=""`  会阻止所有的点击。
+`v-on:click.self.prevent=""`  只会阻止对元素自身的点击。
+
+
+#### 按键修饰符
+
+常用别名有：`.enter`、`.tab`、`.delete`、`.esc`、`.space`、`.up`、`.down`、`.left`、`.right`
+
+可在 `config.keyCodes` 自定义别名：
+
+```javascript
+Vue.config.keyCodes.f1 = 112;  // v-on:keyup.f1
+```
+
+
+#### 系统修饰键
+
+`.ctrl`、`.alt`、`.shift`、`.meta`(徽标键)、`.exact`(精确控制)
+
+```html
+<!-- Alt + C -->
+<input v-on:keyup.alt.67="doSomething">
+
+<!-- 有且只有Ctrl被按下的时候才会触发 -->
+<button @click.ctrl.exact="add">OK</button>
+
+<!-- 就算Alt或者Shift不小心被一同按下也会触发 -->
+<button @click.ctrl="add">OK</button>
+
+<!-- 没有任何 *系统修饰符* 被按下的时候才触发 -->
+<button @click.exact="add">OK</button>
+
+```
+
+
+
+
+## 表单输入绑定
+
+> **v-model**
+
+**基本用法**
+
+```html
+<input type="text" v-model="txt">
+<p>{{ txt }}</p>
+
+<textarea v-model="taa"></textarea>
+<p style="white-space: pre-line">{{ taa }}</p> <!-- 保留换行符 -->
+
+<input type="checkbox" v-model="chk">
+<p>{{ chk }}</p>
+
+<input type="radio" value="男" v-model="rdo">
+<input type="radio" value="女" v-model="rdo">
+<p>{{ rdo }}</p>
+
+<select v-model="slt">
+    <option value="" disabled>请选择</option> <!-- 推荐这样写 -->
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+</select>
+<p>{{ slt }}</p>
+
+<!-- 使用 v-for 渲染 -->
+<p>我喜欢：{{ like }}</p>
+<select v-model="like">
+    <option v-for="item in list" v-bind:value="item.val">{{ item.txt }}</option> <!-- 别忘了要用v-bind绑定一下 -->
+</select>
+
+```
+
+```javascript
+var app = new Vue({
+    el: '#app',
+    data: {
+        txt: '占位',
+        taa: '占位',
+        chk: '占位',
+        rdo: '占位',
+        slt: '占位',
+        like:'啥呢？',
+        list: [
+            { txt: 'A-吃饭', val: '吃饭'},
+            { txt: 'B-睡觉', val: '睡觉'},
+            { txt: 'C-打豆豆', val: '打豆豆'}
+        ]
+    }
+})
+```
+
+上面的例子是将表单控件的value值与data中的数据绑定。
+
+
+**值绑定**
+
+```html
+<input type="checkbox" v-model="what" true-value="yes" false-value="no">
+
+<!--
+正常情况下 vm.what 的值应该是：true 或 false
+而现在就变成了：'yes' 或 'no'
+ -->
+
+```
+
+
+**修饰符**
+
+`.lazy` - 从实时同步改为用“change”事件同步
+
+`.number` - 自动将用户输入的值转为数字类型
+
+`.trim` - 自动过滤用户输入的首尾空白字符
+
+
+
+
+
+## 组件
+
+> ***组件是可复用的Vue实例！！！***
+
+所以，它与 `new Vue` 接收相同的选项，比如`data`、`computed`、`watch`、`methods`、生命周期钩子等。除了一些根实例特有的选项比如`el`等。
+
+```javascript
+// 定义一个名为“my-cpt”的组件
+Vue.component('my-cpt', {
+    data: function(){   // 组件的data必须是函数
+        return {
+            count: 0
+        }
+    },
+    template: '<button v-on:click="count++">Click Me {{ count }} Times</button>'
+
+})
+```
+
+组件可进行任意次数的复用，每复用一次就相当于创建一个新的实例。
+
+**data选项必须是一个函数**
+
+
+### 注册组件
+
+#### 全局注册
+
+```javascript
+Vue.component('component-name', {
+    options...
+})
+```
+
+全局注册的组件，注册后可以用在任何通过`new Vue`新创建的实例中，也包括其组件树中的所有子组件的模板中。
+
+#### 局部注册
+
+```javascript
+new Vue({
+    el: '#app',
+    data: {
+        ...
+    },
+    components: {
+        component-a: {
+            data: function(){
+                return {
+                    name: 'xxx'
+                }
+            },
+            template: '...'
+        },
+        component-b: {
+            data: function(){
+                return {
+                    name: 'yyy'
+                }
+            },
+            template: '...'
+        }
+    }
+})
+```
+
+
+### 组件传值
+
+#### 父向子传值
+
+> **通过Prop特性传递**
+
+Prop是在组件上注册的一些自定义特性，放在 `props` 选项（props是数组或对象）里传过去，可任意数量，可任何类型，传过去后就成了子组件实例的一个属性，就像`data`中的值一样。
+
+```html
+<!-- 别忘了前面有说过，在组件上使用v-for时key是必须的 -->
+
+<!-- props是数组形式 -->
+<son v-for="item in books" v-bind:key="item.id" v-bind:title="item.name"></son>
+
+<!-- props是对象形式 -->
+<son v-for="item in books" v-bind:key="item.id" v-bind:title="item"></son>
+```
+
+```javascript
+// props是数组形式
+Vue.component('son', {
+    props: ['title'],
+    template: '<h3>{{ title }}</h3>'
+})
+
+new Vue({
+    el: '#app',
+    data: {
+        books: [
+            { id: 11, name: '语文'},
+            { id: 12, name: '数学'},
+            { id: 13, name: '英语'}
+        ]
+    }
+})
+
+
+// props是对象形式
+Vue.component('son', {
+    props:{ title: Object }, // Prop特性是'title'
+    template: '<h3>{{ title.name }}</h3>'
+})
+
+new Vue({
+    el: '#app',
+    data: {
+        books: [
+            { id: 11, name: '语文'},
+            { id: 12, name: '数学'},
+            { id: 13, name: '英语'}
+        ]
+    }
+})
+
+
+```
+
+
+
+
+#### 子向父传值
+
+> **利用`$emit`通过事件传递**
+
+```html
+<body>
+    <div id="app">
+
+        <p>{{ count }}</p>
+
+        <son v-for="book in books" v-bind:key="book.id" v-bind:item="book" v-on:add="fuck"></son>
+
+    </div>
+
+    <template id="tpl">
+        <div>
+            <h3>{{ item.name }}</h3>
+            <button v-on:click="$emit('add', item.num)">加1</button>
+        </div>
+    </template>
+</body>
+```
+
+```javascript
+Vue.component('son', {
+    props:['item'],
+    template: '#tpl'
+})
+
+new Vue({
+    el: '#app',
+    data: {
+        count: 0,
+        books: [
+            { id: 11, name: '语文', num: 1},
+            { id: 12, name: '数学', num: 2},
+            { id: 13, name: '英语', num: 3}
+        ]
+    },
+    methods: {
+        haha: function(num){
+            this.count += num;
+        }
+    }
+})
+```
