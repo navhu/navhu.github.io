@@ -600,7 +600,7 @@ var app = new Vue({
 })
 ```
 
-#### 事件修饰符
+### 事件修饰符
 
 `.stop`、`.prevent`、`.capture`、`.self`、`.once`、`.passive`
 
@@ -610,7 +610,7 @@ var app = new Vue({
 `v-on:click.self.prevent=""`  只会阻止对元素自身的点击。
 
 
-#### 按键修饰符
+### 按键修饰符
 
 常用别名有：`.enter`、`.tab`、`.delete`、`.esc`、`.space`、`.up`、`.down`、`.left`、`.right`
 
@@ -621,7 +621,7 @@ Vue.config.keyCodes.f1 = 112;  // v-on:keyup.f1
 ```
 
 
-#### 系统修饰键
+### 系统修饰键
 
 `.ctrl`、`.alt`、`.shift`、`.meta`(徽标键)、`.exact`(精确控制)
 
